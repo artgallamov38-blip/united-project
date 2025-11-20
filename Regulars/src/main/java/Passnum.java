@@ -1,0 +1,9 @@
+import java.util.regex.Pattern;
+import java.util.Scanner;
+public class Passnum {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String PASSWORD_PATTERN = "^.*\\d+.*";
+		System.out.println(Pattern.matches(PASSWORD_PATTERN, sc.next()));
+	}
+}
