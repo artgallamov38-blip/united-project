@@ -16,7 +16,7 @@ public class Program {
         public void run() {
             boolean flag = true;
             while (flag) {
-                User user = signIn();пше
+                User user = signIn();
                 if (user != null) {
                     flag = false;
                     System.out.println("Добро пожаловать, " + user.getLogin());
