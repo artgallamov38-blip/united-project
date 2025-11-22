@@ -5,9 +5,9 @@ public class Program {
     private int countUsers;
     public Program() {
         this.dataBase = new User[100];
-        dataBase[0] = new User("Dfdff", "12313344", "ADMIN");
-        dataBase[1] = new User("Dfsdf", "12rrwe3", "USER");;
-        dataBase[2] = new User("Dqqqq", "123sdsd44", "ADMIN");;
+        dataBase[0] = new User("Art", "12313344", "ADMIN");
+        dataBase[1] = new User("Crun", "12rrwe3", "USER");;
+        dataBase[2] = new User("Brans", "123sdsd44", "ADMIN");;
         dataBase[3] = new User("WW", "12313ddsd344", "USER");;
 
         this.countUsers = 4;
