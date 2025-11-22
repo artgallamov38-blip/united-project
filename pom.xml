@@ -13,6 +13,7 @@
         <module>Ozon</module>
         <module>Diary</module>
         <module>Database</module>
+        <module>AnimalsGame</module>
     </modules>
 
     <properties>
