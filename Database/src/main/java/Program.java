@@ -27,10 +27,10 @@ public class Program {
             }
         }
         public User signIn() {
-            System.out.println("Введите логин:");
+            System.out.println("Введите логин или exit для выхода из программы:");
             String login = sc.nextLine();
             if (login.equals("exit")) {System.out.println("Завершение работы"); System.exit(0);}
-            System.out.println("Введите пароль:");
+            System.out.println("Введите логин или exit для выхода из программы:");
             String password = sc.nextLine();
             if (password.equals("exit")) {System.out.println("Завершение работы"); System.exit(0);}
             return checkUser(login, password);
