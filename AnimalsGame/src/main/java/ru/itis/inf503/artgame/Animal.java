@@ -1,6 +1,6 @@
 package ru.itis.inf503.artgame;
 
-public class Animal {
+public abstract class Animal {
     public String name;
     protected int x;
     protected int y;
@@ -19,11 +19,10 @@ public class Animal {
     public int getX() {
         return this.x;
     }
+
     public int getY() {
         return this.y;
     }
 
-    public void move() {
-
-    }
+    public abstract void move();
 }
