@@ -23,11 +23,11 @@ public class Game {
 
         Hopper hopper = new Hopper("кузя");
         int hopperPositionX = random.nextInt(1, 1000);
-        turtle.setStartPosition(hopperPositionX, 0);
+        hopper.setStartPosition(hopperPositionX, 0);
 
         Something something = new Something("нечто");
         int somethingPositionX = random.nextInt(1, 1000);
-        turtle.setStartPosition(somethingPositionX, 0);
+        something.setStartPosition(somethingPositionX, 0);
 
         while (stopper) {
             ant.move();
