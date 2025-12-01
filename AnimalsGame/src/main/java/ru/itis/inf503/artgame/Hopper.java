@@ -12,8 +12,8 @@ public class Hopper extends Animal {
     public void move() {
         Random random = new Random();
         //получаем псевдослучайное число
-        int direction = random.nextInt(3);
-        //0 - назад, 1 - право, 2 - вперёд, 3 - лево
+        int direction = random.nextInt(4);
+        //0 - вправо, 1 - вперёд, 2 - лево, 3 - назад
         switch (direction) {
             case 0:
                 if (x < Game.GAMEWIDTH) x++;
@@ -24,6 +24,8 @@ public class Hopper extends Animal {
             case 2:
                 if (x > 0) x--;
                 break;
+            case 3:
+                if (y > 0) y--;
         }
     }
 }

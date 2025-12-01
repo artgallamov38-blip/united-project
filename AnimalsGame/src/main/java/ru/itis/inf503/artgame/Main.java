@@ -1,5 +1,6 @@
 package ru.itis.inf503.artgame;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
