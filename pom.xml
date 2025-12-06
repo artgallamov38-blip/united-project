@@ -15,6 +15,7 @@
         <module>Database</module>
         <module>AnimalsGame</module>
         <module>SomeMassive</module>
+        <module>LinkedList</module>
     </modules>
 
     <properties>
