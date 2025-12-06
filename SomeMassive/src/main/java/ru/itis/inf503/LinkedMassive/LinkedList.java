@@ -39,7 +39,7 @@ public class LinkedList {
         return val;
     }
     public void remove(int index) {
-        Node current = head;
 
+        Node current = head;
     }
 }

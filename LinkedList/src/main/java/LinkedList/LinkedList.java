@@ -109,6 +109,58 @@ public class LinkedList {
         size--;
         return indexNode.value;
     }
+    public void sort() {
+        for (int i = 0; i < size - 1; i++) {
+            Node current = head;
+            for (int j = 0; j < size - i - 1; j++) {
+                if (compare(current.value, current.next.value)) {
+                    swap(current, current.next);
+                }
+                }
+            current = current.next;
+            }
 
+        }
+
+
+    private boolean compare(int a, int b) {
+        return a - b > 0;
+    }
+
+    private void swap(Node a, Node b) {
+        Node aPrevious = a.previous;
+        Node bNext = b.next;
+        if (aPrevious != null && bNext != null) {
+            b.next = a;
+            b.previous = aPrevious;
+            aPrevious.next = b;
+            a.next = bNext;
+            a.previous = b;
+            bNext.previous = a;
+        }
+        if (aPrevious == null && bNext != null) {
+            b.next = a;
+            b.previous = null;
+            a.next = bNext;
+            a.previous = b;
+            bNext.previous = a;
+            head = b;
+        }
+        if (aPrevious != null && bNext == null) {
+            b.next = a;
+            b.previous = aPrevious;
+            aPrevious.next = b;
+            a.next = null;
+            a.previous = b;
+            tail = a;
+        }
+        if (aPrevious == null && bNext == null) {
+            a.next = null;
+            a.previous = b;
+            b.next = a;
+            b.previous = null;
+            head = b; tail = a;
+        }
+    }
 
 }
