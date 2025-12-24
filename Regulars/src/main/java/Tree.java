@@ -61,7 +61,7 @@ public class Tree {
 		}
 		if (2 * nodeIndex + 2 < arr.length) { //проверка на выход за пределы строки для правой стороны
 			l = finder(route, x, 2 * nodeIndex + 2, arr); //выполняем поиск
-			if (l >= 0 ) {route[nodeIndex] = 'r'; return l;} //если нашли в левом, то добавляем в массив левую сторону
+			if (l >= 0 ) {route[nodeIndex] = 'r'; return l;} //если нашли в правом, то добавляем в массив правую сторону
 		}
 		return -1; //если не нашли нигде, то выдаём -1
 	}

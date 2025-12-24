@@ -16,7 +16,8 @@ public class Rating {
                 }
             }
         }
-        for (int i = 0; i < students.length - 1; i++) {
+        //сортировка студентов пузырьком
+        for (int i = 0; i < students.length - 1; i++) { //переставляем студентов в соответствии с их баллами по рейтингу
             for (int j = 0; j < students.length - 1 - i; j++) {
                 if (students[j].getTotalpoints() < students[j + 1].getTotalpoints()) {
                     Student tmp = students[j];
@@ -25,6 +26,7 @@ public class Rating {
                 }
             }
         }
+        //в каждый подкласс студента устанавливаем его рейтинг
         for (int i = 0; i < students.length; i++) {
             students[i].setRating(i + 1);
         }

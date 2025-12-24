@@ -7,7 +7,7 @@ public class Pushkin {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("C:\\JavaInform\\L251025\\Qpushk\\pushkin.txt"));
         String[] names = new String[] {"Я, мне, моё:", "Море (моря, морем, морю...):", "Муза:", "Любовь:", "Ветры ... веют:", "Друзья:", "Поэт:", "Взор ... (вс)тревожит:"};
-        Pattern[] patterns = new Pattern[] {
+        Pattern[] patterns = new Pattern[] { //массив скомпилированных регулярок, кодировка юникод для работы с русским алфавитом, и в любом регистре
         Pattern.compile("^((.*\\bЯ\\b.*)|(.*\\bмне\\b.*)|(.*\\bмо[её]\\b.*))$",  Pattern.UNICODE_CHARACTER_CLASS + Pattern.CASE_INSENSITIVE),
         Pattern.compile("^(.*\\bмор(е|я|ю|ем)\\b.*)$",  Pattern.UNICODE_CHARACTER_CLASS + Pattern.CASE_INSENSITIVE),
         Pattern.compile("^(.*\\bмуза\\b.*)$",  Pattern.UNICODE_CHARACTER_CLASS + Pattern.CASE_INSENSITIVE),
@@ -19,7 +19,7 @@ public class Pushkin {
         int[] patternscounters = new int[] {0, 0, 0, 0, 0, 0, 0, 0}; //счётчик для прохода по 5 элементам каждого массива под результаты
         String[][] results = new String[8][5]; //массив для первых 5 результатов
         int counter = 0; //счётчик строк
-        while(sc.hasNext()) {
+        while(sc.hasNext()) { //читаем документ
             String line = sc.nextLine(); //берём строку из файла
             counter++; //считаем её
             for (int i = 0; i < 8; i++) {

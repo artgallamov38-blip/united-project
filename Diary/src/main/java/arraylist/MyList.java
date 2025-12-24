@@ -8,6 +8,7 @@ public abstract class MyList<T> {
     public abstract void removeByValue(T value);
     public abstract int indexOf(T value);
     public abstract T get(int index);
+    public abstract String toString();
 
     //MyIntList
     public static MyList<Integer> ofInt(int... numbers) {

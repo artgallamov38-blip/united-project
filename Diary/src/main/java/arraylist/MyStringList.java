@@ -59,5 +59,13 @@ class MyStringList extends MyList<String> {
         }
         throw new NoSuchElementException("Элемент не найден");
     }
+    public String toString() {
+        System.out.print("[ ");
+        for (int i = 0; i < indsize; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.print("]");
+        return "";
+    }
 
 }

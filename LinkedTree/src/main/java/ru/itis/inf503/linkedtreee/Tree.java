@@ -1,7 +1,7 @@
 package ru.itis.inf503.linkedtreee;
 
 /*
-    значение в узлах левого поддерева <= знаяения в узле.
+    Значение в узлах левого поддерева <= значения в узле.
     Значения в узлах правого поддерева > значения в узлах
  */
 /*
@@ -34,42 +34,32 @@ public class Tree implements IntCollection {
         if (node == null) {
             return "";
         }
-
-        return node.value + ", " + print(node.left) + print(node.right);
+        return node.value + " " + print(node.left) + print(node.right);
     }
 
     public void add(int value) {
-        if (root == null)
+        if (root == null) {
             root = new Node(value);
-        else
+            size++;
+        } else
             add(value, root);
         size++;
     }
 
     private void add(int value, Node node){
-        if (value <= node.value) {
-            if (node.left == null) { // добавляем в левое поддерево
-                Node v = new Node(value);
-                node.left = v;
-                return;
-            } else if (value < node.left.value){
+        if (value <= node.value) { //влево
+            if (node.left == null) { //если нащупали конец, то добавляем
+                node.left = new Node(value);
+                size++;
+            } else { //если нет, то проверяем дальше
                 add(value, node.left);
-            } else {
-                Node v = new Node(value);
-                v.left = node.left;
-                node.left = v;
             }
-        } else {
-            if (node.right == null) { // добавляем в правое поддерево
-                Node v = new Node(value);
-                node.right = v;
-                return;
-            } else if (value >= node.right.value){
+        } else { //вправо
+            if (node.right == null) { //если нащупали конец, то добавляем
+                node.right = new Node(value);
+                size++;
+            } else { //если нет, то проверяем дальше
                 add(value, node.right);
-            } else {
-                Node v = new Node(value);
-                v.right = node.right;
-                node.right = v;
             }
         }
     }
@@ -78,7 +68,10 @@ public class Tree implements IntCollection {
         return size;
     }
 
-    public int min() {
+    public int min() { //минимальный элемент будет всегда на самой левой, из-за "сортировки" дерева
+        if (root == null) {
+            throw new EmptyTreeException();
+        }
         Node current = root;
         while (current.left != null) {
             current = current.left;
@@ -86,7 +79,10 @@ public class Tree implements IntCollection {
         return current.value;
     }
 
-    public int max() {
+    public int max() { //максимальный элемент всегда на самой правой позиции, из-за "сортировки" дерева
+        if (root == null) {
+            throw new EmptyTreeException();
+        }
         Node current = root;
         while (current.right != null) {
             current = current.right;
@@ -96,7 +92,7 @@ public class Tree implements IntCollection {
 
     public String[] path(int value) {
         if (root == null) {
-            return new String[0];
+            throw new EmptyTreeException();
         }
 
         String[] path = new String[size];
@@ -105,29 +101,29 @@ public class Tree implements IntCollection {
         Node current = root;
         path[index++] = "root";
 
-        while (current != null) {
+        while (current != null) { //пока не дошли до конца ищем элемент
             if (value == current.value) {
                 // обрезаем массив до фактического размера
                 String[] result = new String[index];
                 for (int i = 0; i < index; i++) {
-                    result[i] = path[i];
+                    result[i] = path[i]; //перекопируем элементы в нормальный по размеру массив
                 }
                 return result;
-            } else if (value < current.value) {
+            } else if (value <= current.value) { //если меньше, то идём влево
                 current = current.left;
-                if (current != null) {
+                if (current != null) { //если не наткнулись на конец, то ставим l в путь
                     path[index++] = "l";
                 }
-            } else {
+            } else { //если больше, то вправо
                 current = current.right;
-                if (current != null) {
+                if (current != null) { //если не наткнулись на конец, то ставим r в путь
                     path[index++] = "r";
                 }
             }
         }
 
         // если значение не найдено
-        return new String[0];
+        throw new NotFoundException();
     }
 
 

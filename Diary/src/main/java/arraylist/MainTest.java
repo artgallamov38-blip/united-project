@@ -9,6 +9,10 @@ public class MainTest {
         System.out.println(list.get(3).getClass());
         System.out.println(list.length());
         System.out.println(list.indexOf(3));
+        list.add(3);
+        list.removeByValue(4);
+        list.removeByValue(1);
+        System.out.println(list);
     }
 
 }

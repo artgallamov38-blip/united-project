@@ -8,6 +8,7 @@ class MyBooleanList extends MyList<Boolean> {
         this.array = values.clone();
         this.indsize = this.array.length;
     }
+
     public MyBooleanList() {
         this.array = new boolean[10];
         this.indsize = 0;
@@ -26,7 +27,7 @@ class MyBooleanList extends MyList<Boolean> {
     }
 
     public Boolean get(int index) {
-        if (index < 0 || index >= indsize ) {
+        if (index < 0 || index >= indsize) {
             throw new IndexOutOfBoundsException();
         }
         return array[index];
@@ -37,7 +38,7 @@ class MyBooleanList extends MyList<Boolean> {
     }
 
     public void removeByIndex(int index) {
-        if (index < 0 || index >= indsize ) {
+        if (index < 0 || index >= indsize) {
             throw new IndexOutOfBoundsException();
         }
         for (int i = index; i < indsize - 1; i++) {
@@ -49,15 +50,29 @@ class MyBooleanList extends MyList<Boolean> {
 
     public int indexOf(Boolean value) {
         for (int i = 0; i < indsize; i++) {
-            if (array[i] == value) {return i;}
-        }
-        throw new NoSuchElementException("Элемент не найден");
-    }
-    public void removeByValue(Boolean value) {
-        for (int i = 0; i < indsize; i++) {
-            if (array[i] == (boolean) value) {removeByIndex(i); return;}
+            if (array[i] == value) {
+                return i;
+            }
         }
         throw new NoSuchElementException("Элемент не найден");
     }
 
+    public void removeByValue(Boolean value) {
+        for (int i = 0; i < indsize; i++) {
+            if (array[i] == (boolean) value) {
+                removeByIndex(i);
+                return;
+            }
+        }
+        throw new NoSuchElementException("Элемент не найден");
+    }
+
+    public String toString() {
+        System.out.print("[ ");
+        for (int i = 0; i < indsize; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.print("]");
+        return "";
+    }
 }
